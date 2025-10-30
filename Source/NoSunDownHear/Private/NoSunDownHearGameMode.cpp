@@ -2,13 +2,13 @@
 
 #include "NoSunDownHearGameMode.h"
 #include "NoSunDownHearCharacter.h"
+#include "NSDHGameStateBase.h"
+#include "NoSunDownHearPlayerController.h"
 #include "UObject/ConstructorHelpers.h"
 
 ANoSunDownHearGameMode::ANoSunDownHearGameMode()
-	: Super()
 {
-	// set default pawn class to our Blueprinted character
-	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnClassFinder(TEXT("/Game/FirstPerson/Blueprints/BP_FirstPersonCharacter"));
-	DefaultPawnClass = PlayerPawnClassFinder.Class;
+	GameStateClass = ANSDHGameStateBase::StaticClass();
+	PlayerControllerClass = ANoSunDownHearPlayerController::StaticClass();
 
 }

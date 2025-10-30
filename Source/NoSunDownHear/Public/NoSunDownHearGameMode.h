@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
+#include "NoSunDownHear.h"
 #include "GameFramework/GameModeBase.h"
 #include "NoSunDownHearGameMode.generated.h"
 
@@ -12,6 +12,7 @@ class ANoSunDownHearGameMode : public AGameModeBase
 	GENERATED_BODY()
 
 public:
+	/** »ý¼ºÀÚ */
 	ANoSunDownHearGameMode();
 };
 

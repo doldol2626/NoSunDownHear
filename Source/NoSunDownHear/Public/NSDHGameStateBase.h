@@ -16,6 +16,6 @@ class NOSUNDOWNHEAR_API ANSDHGameStateBase : public AGameStateBase
 
 public:
 	/** »ý¼ºÀÚ **/
-	ANSDHGameStateBase() {}
+	ANSDHGameStateBase();
 	
 };
