@@ -5,6 +5,12 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"
+
+#include "AbilitySystemInterface.h"
+#include "GenericTeamAgentInterface.h"
+
+#include "Abilities/NSDHAbilitySystemComponent.h"
+
 #include "NoSunDownHearCharacter.generated.h"
 
 class UInputComponent;
@@ -12,12 +18,15 @@ class USkeletalMeshComponent;
 class UCameraComponent;
 class UInputAction;
 class UInputMappingContext;
+
+class UNSDHGameplayAbility;
+
 struct FInputActionValue;
 
-DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
+DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Error, All);
 
-UCLASS(config=Game)
-class ANoSunDownHearCharacter : public ACharacter
+UCLASS()
+class NOSUNDOWNHEAR_API ANoSunDownHearCharacter : public ACharacter, public IAbilitySystemInterface, public IGenericTeamAgentInterface
 {
 	GENERATED_BODY()
 
@@ -44,8 +53,12 @@ class ANoSunDownHearCharacter : public ACharacter
 public:
 	ANoSunDownHearCharacter();
 
+	UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+
 protected:
 	virtual void BeginPlay();
+
+	UNSDHAbilitySystemComponent* AbilitySystemComponent;
 
 public:
 		
